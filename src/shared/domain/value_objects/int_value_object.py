@@ -1,4 +1,4 @@
-from value_object import ValueObject
+from .value_object import ValueObject
 
 class IntValueObject(ValueObject):
     def __init__(self, value: int):

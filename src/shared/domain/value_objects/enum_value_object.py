@@ -1,4 +1,4 @@
-from value_object import ValueObject
+from .value_object import ValueObject
 from enum import Enum
 
 class EnumValueObject(ValueObject):

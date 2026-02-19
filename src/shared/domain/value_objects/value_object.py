@@ -7,4 +7,4 @@ class ValueObject:
         self._value = value
 
     def toString(self) -> str:
-        return str(self._value)
+        pass
