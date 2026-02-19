@@ -5,8 +5,8 @@ class ProductBaseUnitValueObject(EnumValueObject):
         super().__init__(value)
     
     def _validateBaseUnits(self, value):
-        values = ["kg", "g", "oz"]
+        values = ["kg", "g", "oz", "lb", "ml", "lt", "unidad"]
         for value in self.__validValues:
             if value not in values:
-                raise Exception("Algunos valores no tiene unidades validas")
+                raise Exception("Algunos valores no tienen unidades validas")
             

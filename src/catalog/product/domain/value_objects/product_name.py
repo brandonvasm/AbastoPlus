@@ -6,6 +6,6 @@ class ProductNameValueObject(StringValueObject):
         self._validateCharacterLength(self._value)
 
     def _validateCharacterLength(self, value):
-        if not len(value) > 4:
+        if not len(value) > 10:
             raise Exception("El nombre no tiene suficientes caracteres") 
         
