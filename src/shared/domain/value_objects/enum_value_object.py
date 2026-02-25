@@ -10,5 +10,8 @@ class EnumValueObject(ValueObject):
     def _ensureValueIsValid(self, value: str):
         if not isinstance(value, str):
             raise Exception("El valor no es una cadena")
+    
+    def toString(self) -> str:
+        return self._value
 
         

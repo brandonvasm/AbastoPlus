@@ -29,5 +29,13 @@ class Product:
             ProductBaseUnitValueObject(baseUnit),
             ProductPresentations(productPresentations, baseUnit)
         ) 
+    
+    def toDict(self):
+        return {
+            "_id": self.__productId.toString(),
+            "name": self.__productName.toString(),
+            "base_unit": self.__productBaseUnit.toString(),
+            "presentations": self.__productPresentations.convertToDict()
+        }
 
 

@@ -22,3 +22,11 @@ class ProductPresentations:
                     presentation.unit_of_measure
                 )
             )
+
+    def convertToDict(self):
+        presentations = []
+        for presentation in self.__productPresentations:
+            presentations.append(
+                presentation.toDict()
+            )
+        return presentations

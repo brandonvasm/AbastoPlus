@@ -34,3 +34,12 @@ class Presentation:
             PresentationMeasureUnits(unit_of_measure)
         )
     
+    def toDict(self):
+        return {
+            "id": self.__id._value,
+            "name": self.__name._value,
+            "quantity": self.__netQuantity._value,
+            "type": self.__type._value,
+            "unit_of_measure": self.__unitOfMeasure._value
+        }
+    
