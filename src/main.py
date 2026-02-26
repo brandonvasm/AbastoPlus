@@ -1,17 +1,22 @@
 from catalog.product.domain.product import Product
 from catalog.product.domain.presentation_primitive import PrimitivePresentation
 from catalog.product.infrastructure.MongoProductRepository import MongoProductRepository
+from catalog.product.application.use_cases.save_product import SaveProduct
 import uuid
+
 
 idd = str(uuid.uuid4())
 print(idd)
-product = Product.build(idd, "Carlos Eduardo Vela", "kg", 
-            [
-                PrimitivePresentation(
-                    str(uuid.uuid4()),
-                    "Presentacion2", 5, "bag", "kg"
-                )
-            ])
-print(product.toDict())
-prueva = MongoProductRepository()
-prueva.save(product)
+
+saveproduct = SaveProduct(MongoProductRepository)
+
+
+saveproduct.Execute({"id": idd, "name": "Breakfast Burrito", "unit_of_measure": "kg", "presentations": [{"id": str(uuid.uuid4()),"name": "Presentacion 2", "net_quantitiy": 5,"type": "bag", "unit_of_measure": "kg"}]})
+
+
+
+
+
+
+
+
