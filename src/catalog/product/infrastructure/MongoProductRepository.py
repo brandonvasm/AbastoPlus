@@ -2,7 +2,7 @@ from catalog.product.application.product_Repository import ProductRepository
 from catalog.product.domain.product import Product
 from pymongo import MongoClient
 
-class MongoProductRepository (ProductRepository):
+class MongoProductRepository(ProductRepository):
     def __init__(self):
         db = self.get_db()
         self.database = db["abasto_plus"] 

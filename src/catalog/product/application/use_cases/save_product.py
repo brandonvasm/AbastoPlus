@@ -1,17 +1,18 @@
-from product_Repository import ProductRepository
-from domain.presentation_primitive import PrimitivePresentation
+from catalog.product.application.product_Repository import ProductRepository
+from catalog.product.domain.presentation_primitive import PrimitivePresentation
 from catalog.product.domain.product import Product
+from typing import Type
 
 
 
 class SaveProduct:
-    def __init__(self, repository: ProductRepository):
+    def __init__(self, repository: Type[ProductRepository]):
         self.__repository = repository
         
         
 
 
-    def Execute(self, data: dict):
+    def execute(self, data: dict):
         primitive_presentations = data["presentations"]
         presentations = []
         for p in primitive_presentations:
@@ -25,8 +26,8 @@ class SaveProduct:
                 )
             )
 
-        self.__repository.save(
-            Product.build(
+        self.__repository.save( 
+            data = Product.build(
                 data["id"],
                 data["name"],
                 data["unit_of_measure"],

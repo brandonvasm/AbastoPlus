@@ -8,10 +8,11 @@ import uuid
 idd = str(uuid.uuid4())
 print(idd)
 
-saveproduct = SaveProduct(MongoProductRepository)
+mongo = MongoProductRepository()
+saveproduct = SaveProduct(mongo)
 
 
-saveproduct.Execute({"id": idd, "name": "Breakfast Burrito", "unit_of_measure": "kg", "presentations": [{"id": str(uuid.uuid4()),"name": "Presentacion 2", "net_quantitiy": 5,"type": "bag", "unit_of_measure": "kg"}]})
+saveproduct.execute({"id": idd, "name": "Breakfast Burrito", "unit_of_measure": "kg", "presentations": [{"id": str(uuid.uuid4()),"name": "Presentacion 2", "net_quantity": 5,"type": "bag", "unit_of_measure": "kg"}]})
 
 
 
