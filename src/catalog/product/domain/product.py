@@ -1,7 +1,6 @@
 from .value_objects.product_base_unit import ProductBaseUnitValueObject
 from .value_objects.product_id import IdValueObject
 from .value_objects.product_name import ProductNameValueObject
-from .presentation_primitive import PrimitivePresentation
 from .value_objects.product_presentations import ProductPresentations
 
 class Product:
@@ -21,7 +20,7 @@ class Product:
         id: str,
         name: str,
         baseUnit: str,
-        productPresentations: list[PrimitivePresentation] 
+        productPresentations: list[dict] 
     ):
         return Product(
             IdValueObject(id),
@@ -32,9 +31,9 @@ class Product:
     
     def toDict(self):
         return {
-            "_id": self.__productId.toString(),
-            "name": self.__productName.toString(),
-            "base_unit": self.__productBaseUnit.toString(),
+            "_id": str(self.__productId),
+            "name": str(self.__productName),
+            "base_unit": str(self.__productBaseUnit),
             "presentations": self.__productPresentations.convertToDict()
         }
 

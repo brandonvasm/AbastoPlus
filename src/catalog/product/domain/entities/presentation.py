@@ -36,10 +36,10 @@ class Presentation:
     
     def toDict(self):
         return {
-            "id": self.__id._value,
-            "name": self.__name._value,
-            "quantity": self.__netQuantity._value,
-            "type": self.__type._value,
-            "unit_of_measure": self.__unitOfMeasure._value
+            "id": str(self.__id),
+            "name": str(self.__name),
+            "quantity": str(self.__netQuantity),
+            "type": str(self.__type),
+            "unit_of_measure": str(self.__unitOfMeasure)
         }
     

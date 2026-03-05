@@ -8,4 +8,7 @@ class IntValueObject(ValueObject):
     def _ensureValueIsInt(self, value):
         if not isinstance(value, int):
             raise Exception("El valor no es un entero")
+    
+    def __str__(self) -> str:
+        return str(self._value)
         

@@ -9,5 +9,5 @@ class StringValueObject(ValueObject):
         if not isinstance(value, str):
             raise Exception("El valor no es una cadena")
     
-    def toString(self) -> str:
+    def __str__(self) -> str:
         return self._value

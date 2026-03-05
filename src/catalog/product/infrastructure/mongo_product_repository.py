@@ -13,7 +13,6 @@ class MongoProductRepository(ProductRepository):
         self.collection.insert_one( 
             product
         )
-        print("funciono")
 
     def get_db(self):
         client = MongoClient("mongodb://localhost:27017")

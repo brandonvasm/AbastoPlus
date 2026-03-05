@@ -1,25 +1,24 @@
 from ..entities.presentation import Presentation
-from ..presentation_primitive import PrimitivePresentation
 
 class ProductPresentations:
     def __init__(
         self,
-        presentations: list[PrimitivePresentation],
+        presentations: list[dict],
         productBaseUnit: str
     ):
         self.__productPresentations: list[Presentation] = [] 
-        for presentation in presentations:
 
-            if not presentation.unit_of_measure == productBaseUnit:
+        for presentation in presentations:
+            if not presentation["unit_of_measure"] == productBaseUnit:
                 raise Exception("The measure unit of the presentation is not valid")
 
             self.__productPresentations.append(
                 Presentation.build(
-                    presentation.id,
-                    presentation.name,
-                    presentation.netQuantity,
-                    presentation.type,
-                    presentation.unit_of_measure
+                    presentation["id"],
+                    presentation["name"],
+                    presentation["net_quantity"],
+                    presentation["type"],
+                    presentation["unit_of_measure"]
                 )
             )
 

@@ -1,4 +1,4 @@
-from catalog.product.infrastructure.container import Container
+from catalog.product.infrastructure.product_container import ProductContainer 
 
 import uuid
 
@@ -6,7 +6,7 @@ import uuid
 idd = str(uuid.uuid4())
 print(idd)
 
-container = Container()
+container = ProductContainer()
 saveproduct = container.save_product()
 
 saveproduct.execute(
@@ -16,7 +16,7 @@ saveproduct.execute(
      "presentations": 
         [
          {"id": str(uuid.uuid4()),
-          "name": "Presentacion 2", 
+          "name": "Burrito de Desayuno Especial", 
           "net_quantity": 5,
           "type": "bag", 
           "unit_of_measure": "kg"}
