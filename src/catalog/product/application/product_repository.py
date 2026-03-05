@@ -4,4 +4,4 @@ from abc import ABC, abstractmethod
 class ProductRepository():
     @abstractmethod
     def save(self, data: Product):
-        pass 
+        pass

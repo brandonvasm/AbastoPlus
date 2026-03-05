@@ -1,4 +1,4 @@
-from catalog.product.application.product_Repository import ProductRepository
+from catalog.product.application.product_repository import ProductRepository
 from catalog.product.domain.product import Product
 from pymongo import MongoClient
 
@@ -13,6 +13,7 @@ class MongoProductRepository(ProductRepository):
         self.collection.insert_one( 
             product
         )
+        print("funciono")
 
     def get_db(self):
         client = MongoClient("mongodb://localhost:27017")
