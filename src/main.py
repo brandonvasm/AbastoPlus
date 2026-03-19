@@ -1,6 +1,7 @@
 from catalog.product.infrastructure.product_container import ProductContainer 
-
+from shared.infraestructure.event_bus import EventBus
 import uuid
+
 
 
 idd = str(uuid.uuid4())
@@ -23,3 +24,7 @@ saveproduct.execute(
         ]
     }
 )
+
+event_bus = container.event_bus()
+event_bus.consume("catalog.product.created_event", 10)
+

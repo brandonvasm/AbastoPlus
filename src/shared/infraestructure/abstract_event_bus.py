@@ -7,5 +7,5 @@ class AbstractEventBus(ABC):
         pass
     
     @abstractmethod
-    def consume(self, eventName:str, limit:int):
+    def consume(self, eventName: str, limit: int):
         pass
