@@ -2,11 +2,12 @@ from catalog.product.domain.product import Product
 from catalog.product.infrastructure.product_container import ProductContainer
 
 class SaveProduct:
-    def __init__(self, repository, translator):
+    def __init__(self, repository, translator, event_bus):
         self.__repository = repository
         self.__translator = translator
+        self.__event_bus = event_bus
 
-    def execute(self, data: dict, event_bus):
+    def execute(self, data: dict):
         primitive_presentations = data["presentations"]
         presentations = []
 
@@ -25,10 +26,11 @@ class SaveProduct:
             )
         )
 
-        event_bus.publish({
+        self.__event_bus.publish({
             "name": "catalog.product.created_event",
             "payload": {
-                "id": data["id"],
-                "name": data["name"]
+                "product_id": data["id"],
+                "product_name": data["name"],
+                "target_language": "en"
             }
         })

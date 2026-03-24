@@ -26,5 +26,5 @@ saveproduct.execute(
 )
 
 event_bus = container.event_bus()
-event_bus.consume("catalog.product.created_event", 10)
+event_bus.consume("catalog.product.created_event", 2)
 

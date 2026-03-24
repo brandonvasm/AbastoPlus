@@ -1,19 +1,19 @@
-from abstract_event_bus import AbstractEventBus
 from catalog.product.infrastructure.product_container import ProductContainer
+from abstract_event_bus import AbstractEventBus
 
 import queue
 
 from typing import TypeVar, Generic
-
 T = TypeVar('T')
 
 
 class EventBus(AbstractEventBus):
     def __init__(self):
+        product_container = ProductContainer()
         self.events: queue.Queue = queue.Queue()
         self.event_map: dict[str, list[T]] = {
             "catalog.product.created_event": [
-                ProductContainer().translate_presentation_name
+                product_container.translate_product_name(),
             ],
         }
 
@@ -27,6 +27,7 @@ class EventBus(AbstractEventBus):
         handlers = self.event_map[eventName]
         current_event = self.events.get_nowait()
 
-
-        for handler in handlers:
-            handler.execute(current_event["payload"])
+        for _ in range(limit):
+            for handler in handlers:
+                handler.execute(current_event["payload"])
+            
