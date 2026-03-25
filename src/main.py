@@ -1,5 +1,4 @@
 from catalog.product.infrastructure.product_container import ProductContainer 
-from shared.infraestructure.event_bus import EventBus
 import uuid
 
 
@@ -12,7 +11,7 @@ saveproduct = container.save_product()
 
 saveproduct.execute(
     {"id": idd, 
-     "name": "Breakfast Burrito", 
+     "name": "Burrito de desayuno de pescado", 
      "unit_of_measure": "kg", 
      "presentations": 
         [
@@ -26,5 +25,5 @@ saveproduct.execute(
 )
 
 event_bus = container.event_bus()
-event_bus.consume("catalog.product.created_event", 2)
+event_bus.consume("catalog.product.created_event", 1)
 

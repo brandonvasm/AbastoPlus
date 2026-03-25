@@ -1,8 +1,13 @@
 from catalog.product.domain.product import Product
-from catalog.product.infrastructure.product_container import ProductContainer
+from catalog.product.application.product_repository import ProductRepository
+from catalog.product.application.ports.translate_service import TranslateService
+from shared.domain.abstract_event_bus import AbstractEventBus
 
 class SaveProduct:
-    def __init__(self, repository, translator, event_bus):
+    def __init__(self, 
+                 repository: ProductRepository, 
+                 translator: TranslateService, 
+                 event_bus: AbstractEventBus):
         self.__repository = repository
         self.__translator = translator
         self.__event_bus = event_bus

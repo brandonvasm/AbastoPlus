@@ -14,9 +14,8 @@ class MongoProductRepository(ProductRepository):
             product
         )
 
-    def update(self, data: Product, fields: dict):
-        product = data.toDict()
-        self.collection.update_one({"_id": product["_id"]}, fields)
+    def update(self, product_id: int, fields: dict):
+        self.collection.update_one({"_id": product_id}, fields)
 
     def get_db(self):
         client = MongoClient("mongodb://localhost:27017")

@@ -26,6 +26,7 @@ class Presentation:
         type: str,
         unit_of_measure: str        
     ):
+        print(name)
         return Presentation(
             PresentationId(id), 
             PresentationName(name), 
