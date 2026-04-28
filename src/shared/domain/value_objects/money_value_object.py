@@ -23,13 +23,16 @@ class Money:
         return Money(self.amount + other.amount, self.currency)
 
     def equals(self, other: object) -> bool:
-        if not isinstance(other, Money):
-            return False
-
         return (
             self.amount == other.amount and
             self.currency == other.currency
         )
+    
+    def __eq__(self, value):
+        if not isinstance(value, Money):
+            return False
+
+        return self.equals(value)
 
 
 class InvalidMoneyError(Exception):
