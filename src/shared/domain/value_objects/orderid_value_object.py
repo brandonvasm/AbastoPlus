@@ -16,3 +16,4 @@ class OrderItem:
             raise ValueError("Unit price cannot be negative")
 
         return self.quantity * self.unit_price
+    

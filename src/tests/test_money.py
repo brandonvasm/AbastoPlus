@@ -47,3 +47,4 @@ class TestEquality:
         b = Money.create(20, "USD")
 
         assert a.equals(b) is False
+
