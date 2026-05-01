@@ -1,4 +1,3 @@
-from dataclasses import dataclass, field
 from typing import List
 import uuid
 
@@ -8,12 +7,11 @@ from .order_status_value_object import OrderStatus
 from .orderid_value_object import OrderItem
 from .quantity_value_object import Quantity
 
-@dataclass
 class Order:
     id: str
     customer_id: CustomerId
     status: OrderStatus
-    items: List[OrderItem] = field(default_factory=list)
+    items: List[OrderItem] = []
 
     def __init__(self, id: str, customer_id: CustomerId, status: OrderStatus, items: List[OrderItem] | None = []):
         self.id = id
